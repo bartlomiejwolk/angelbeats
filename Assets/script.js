@@ -21,7 +21,8 @@ function Start () {
 		if (timeStamp(line)) {
 			// Delete all spaces except 7th and 8th						
 			var sb = new StringBuilder(line);
-			sb.Replace(" ", "", 0, 18);		
+			sb.Replace(" ", "", 0, 18);
+			sb.Replace(" ", "", 18, 15);
 			Debug.Log(sb);			
 			//Debug.Log(line);
 		}					
