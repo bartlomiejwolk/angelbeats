@@ -9,6 +9,8 @@ function Start () {
 	var sr = StreamReader(Application.dataPath + "/" + fileName);
 	var fileContent = sr.ReadToEnd();
 	sr.Close();
+	var sw : StreamWriter = new StreamWriter("converted.srt");
+	var output : String;
 	
 	var lines = fileContent.Split("\n"[0]);
 	// New StringBuilder?
@@ -22,13 +24,21 @@ function Start () {
 			// Delete all spaces except 7th and 8th						
 			var sb = new StringBuilder(line);
 			sb.Replace(" ", "", 0, 18);
-			sb.Replace(" ", "", 18, 15);
+			sb.Replace(" ", "", 18, 15);					
+			
+			output += (sb.ToString() + "\n");
+			//output += (line + "\n");
 			Debug.Log(sb);			
 			//Debug.Log(line);
+		}
+		else {
+			output += (line + "\n");;
 		}					
 	}
 	//Debug.Log(lines);
 	// save output to a new file
+	sw.Write(output);
+	sw.Close();
 }
 
 function Update () {
