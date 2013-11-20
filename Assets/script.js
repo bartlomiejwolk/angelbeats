@@ -12,7 +12,7 @@ function Start () {
 	
 	var lines = fileContent.Split("\n"[0]);
 	// New StringBuilder?
-	
+
 		
 	for (line in lines) {
 		//line[0] = "x";
@@ -21,7 +21,7 @@ function Start () {
 		if (timeStamp(line)) {
 			// Delete all spaces except 7th and 8th						
 			var sb = new StringBuilder(line);
-			sb.Replace(" ", "", 0, 1);		
+			sb.Replace(" ", "", 0, 18);		
 			Debug.Log(sb);			
 			//Debug.Log(line);
 		}					
@@ -35,11 +35,11 @@ function Update () {
 }
 
 function timeStamp(s : String) {
-	if (s[0] == s[1]) {		
-		return true;
+	if (s[0] == '\r' || (s[0] != "0" || s[1] != "0")) {		
+		return false;
 	}
 	else {
-		return false;
+		return true;
 	}
 		
 }
